@@ -1,1 +1,9 @@
-# Highlight_Removal
+# ハイライト検出
+本プロジェクトでは、医療画像や自然画像における ハイライト領域のセグメンテーション を目的として、U-Net を用いた二値マスク予測モデルを実装しています。
+
+# モデル構造
+本プロジェクトで使用している U-Net は、以下のような構成です：
+エンコーダー：Conv2D → ReLU → MaxPooling（4段）
+ボトルネック：Conv2D（1段）
+デコーダー：ConvTranspose2D → Concat → Conv2D（4段）
+出力層：1x1 Conv → Sigmoid（二値マスク）
