@@ -1,9 +1,69 @@
-# ハイライト検出
-本プロジェクトでは、医療画像や自然画像における ハイライト領域のセグメンテーション を目的として、U-Net を用いた二値マスク予測モデルを実装しています。
+# 💡 ハイライト検出プロジェクト
 
-# モデル構造
-本プロジェクトで使用している U-Net は、以下のような構成です：
-エンコーダー：Conv2D → ReLU → MaxPooling（4段）
-ボトルネック：Conv2D（1段）
-デコーダー：ConvTranspose2D → Concat → Conv2D（4段）
-出力層：1x1 Conv → Sigmoid（二値マスク）
+本プロジェクトでは、**医療画像や自然画像におけるハイライト領域のセグメンテーション**を目的として、U-Net アーキテクチャを用いた二値マスク予測モデルを実装しています。
+
+---
+
+## 🔧 モデル構造
+
+使用している U-Net の構成は以下の通りです：
+
+### エンコーダー（Downsampling）
+- Conv2D → ReLU → MaxPooling
+- 段数：4段（チャンネル数は段階的に増加）
+
+### ボトルネック
+- Conv2D（1層）
+
+### デコーダー（Upsampling）
+- ConvTranspose2D（アップサンプリング）
+- Concat（スキップ接続）
+- Conv2D
+- 段数：4段（チャンネル数は段階的に減少）
+
+### 出力層
+- 1x1 Conv → Sigmoid による二値マスク出力
+
+---
+
+## ⚙️ 損失関数・最適化
+
+- **損失関数**：`nn.BCELoss()`  
+- **最適化手法**：`Adam`  
+  - 学習率：`1e-4`
+
+---
+
+## 📈 評価指標
+
+以下の2つの指標でモデル性能を評価しています：
+
+- **IoU（Intersection over Union）**  
+- **Dice Coefficient（F1スコア）**
+
+---
+
+## ✅ 結果
+
+予測結果の可視化例を以下に示します：
+
+<p align="center">
+  <img width="1142" height="397" alt="Prediction 1" src="https://github.com/user-attachments/assets/243d2c21-83e9-44e8-8e9e-3eb373474182" />
+</p>
+
+<p align="center">
+  <img width="1142" height="397" alt="Prediction 2" src="https://github.com/user-attachments/assets/3de96781-de24-4418-9c51-4ed954866999" />
+</p>
+
+<p align="center">
+  <img width="1142" height="397" alt="Prediction 3" src="https://github.com/user-attachments/assets/10f794ce-316b-44f2-afe7-eeee82f82fc8" />
+</p>
+
+---
+
+## 💬 コメント
+
+モデルはハイライト領域を精度高く抽出しており、視覚的にも一貫したマスク出力が確認されました。  
+今後は、**学習データの多様性向上**や**損失関数の改良**によってさらなる精度改善が期待されます。
+
+---
