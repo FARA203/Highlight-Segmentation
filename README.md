@@ -52,11 +52,11 @@
 </p>
 
 <p align="center">
-  <img width="1142" height="397" alt="Prediction 2" src="https://github.com/user-attachments/assets/3de96781-de24-4418-9c51-4ed954866999" />
+  <img width="1142" height="397" alt="download" src="https://github.com/user-attachments/assets/e4fe1a29-65ce-45b3-b9ec-af3865b174b7" />
 </p>
 
 <p align="center">
-  <img width="1142" height="397" alt="Prediction 3" src="https://github.com/user-attachments/assets/10f794ce-316b-44f2-afe7-eeee82f82fc8" />
+  <img width="1142" height="397" alt="download" src="https://github.com/user-attachments/assets/206c88d8-b474-4bc2-8487-90449e6bf6b5" />
 </p>
 
 ---
